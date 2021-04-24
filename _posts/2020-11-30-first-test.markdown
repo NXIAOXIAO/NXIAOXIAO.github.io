@@ -24,4 +24,4 @@ categories: jekyll update
     - 插入图片Markdown语法代码：'\!\[图片alt\](图片链接 "图片title")。'
 - 要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符 () 。
 
-[点击这里有福利](https://github.com/NXIAOXIAO/NXIAOXIAO.github.io/blob/master/files/NetSpeedMonitor-Ver1.0-beta.exe "网速监测小软件")
+[点击这里有福利](https://github.com/NXIAOXIAO/NXIAOXIAO.github.io/blob/master/files/NetSpeedMonitor-Ver1.0-beta.exe?raw=true "网速监测小软件")
