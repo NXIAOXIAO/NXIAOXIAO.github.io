@@ -93,7 +93,7 @@ subnet 192.168.175.0 netmask 255.255.255.0 {
 *注意使用systemctl启动服务*
 
 ### TFTP服务配置
-这里使用tftpd-hpa
+这里使用tftpd-hpa  
 `apt-get install tftpd-hpa` 安装  
 `nano /etc/default/tftpd-hpa` 修改配置文件  
 ```
@@ -107,10 +107,10 @@ TFTP_OPTIONS="-l -c -s"
 *注意使用systemctl启动服务*
 
 ### HTTP服务配置
-这里使用apache2
-`apt-get install apache2` 安装
-`systemctl start apache2.service` 安装后直接启动服务即可
-需要传输的文件放置在/var/www/html目录下，在当前应用场景下，不需要太过复杂的自定义配置。
+这里使用apache2  
+`apt-get install apache2` 安装  
+`systemctl start apache2.service` 安装后直接启动服务即可  
+需要传输的文件放置在/var/www/html目录下，在当前应用场景下，不需要太过复杂的自定义配置。  
 
 ### 此项布置注意事项
 - pxelinux.0和lpxelinux.0只支持bios模式下的pxe启动
