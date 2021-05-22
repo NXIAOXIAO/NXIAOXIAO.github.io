@@ -24,12 +24,16 @@ categories: jekyll update
 
 ## 需要知道的知识
 ### DHCP
-动态主机设置协议（英语：Dynamic Host Configuration Protocol，缩写：DHCP），又称动态主机组态协定，是一个用于IP网络的网络协议，位于OSI模型的应用层，使用UDP协议工作，主要有两个用途：[资料来源]("https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE" "Wiki-DHCP")
-
+动态主机设置协议（英语：Dynamic Host Configuration Protocol，缩写：DHCP），又称动态主机组态协定，是一个用于IP网络的网络协议，位于OSI模型的应用层，使用UDP协议工作，主要有两个用途：
 - 用于内部网或网络服务供应商自动分配IP地址给用户
 - 用于内部网管理员对所有电脑作中央管理
-- 动态主机设置协议（DHCP）是一种使网络管理员能够集中管理和自动分配IP网络地址的通信协议。在IP网络中，每个连接Internet的设备都需要分配唯一的IP地址。DHCP使网络管理员能从中心结点监控和分配IP地址。当某台计算机移到网络中的其它位置时，能自动收到新的IP地址。
-- DHCP使用了租约的概念，或称为计算机IP地址的有效期。租用时间是不定的，主要取决于用户在某地连接Internet需要多久，这对于教育行业和其它用户频繁改变的环境是很实用的。透过较短的租期，DHCP能够在一个计算机比可用IP地址多的环境中动态地重新配置网络。DHCP支持为计算机分配静态地址，如需要永久性IP地址的Web服务器。
+
+动态主机设置协议（DHCP）是一种使网络管理员能够集中管理和自动分配IP网络地址的通信协议。在IP网络中，每个连接Internet的设备都需要分配唯一的IP地址。DHCP使网络管理员能从中心结点监控和分配IP地址。当某台计算机移到网络中的其它位置时，能自动收到新的IP地址。
+
+DHCP使用了租约的概念，或称为计算机IP地址的有效期。租用时间是不定的，主要取决于用户在某地连接Internet需要多久，这对于教育行业和其它用户频繁改变的环境是很实用的。透过较短的租期，DHCP能够在一个计算机比可用IP地址多的环境中动态地重新配置网络。DHCP支持为计算机分配静态地址，如需要永久性IP地址的Web服务器。
+
+[资料来源]("https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE" "Wiki-DHCP")
+
 
 ### TFTP
 简单文件传输协议也称小型文件传输协议（Trivial File Transfer Protocol, TFTP），是一种于1981年在RFC 783中定义的简化的文件传输协议（FTP）。
@@ -68,13 +72,14 @@ Ubuntu Server 20.04
 5. pxelinux.cfg/default 配置文件
 
 ### DHCP服务配置
-这里选用isc-dhcp-server作为dhcp服务器
-`apt-get install isc-dhcp-server `  安装软件 
-`nano /etc/default/isc-dhcp-server` 修改INTERFACESv4="ens33"
-`nano /etc/dhcp/dhcpd.conf` 修改配置文件
+这里选用isc-dhcp-server作为dhcp服务器  
+`apt-get install isc-dhcp-server `  安装软件   
+`nano /etc/default/isc-dhcp-server`  
+修改INTERFACESv4="ens33"  
+`nano /etc/dhcp/dhcpd.conf` 修改配置文件  
 
 ``` 
-配置文件示例
+配置文件示例  
 subnet 192.168.175.0 netmask 255.255.255.0 {
        range 192.168.175.100 192.168.175.200;
        option subnet-mask 255.255.255.0;
@@ -89,8 +94,8 @@ subnet 192.168.175.0 netmask 255.255.255.0 {
 
 ### TFTP服务配置
 这里使用tftpd-hpa
-`apt-get install tftpd-hpa` 安装
-`nano /etc/default/tftpd-hpa` 修改配置文件
+`apt-get install tftpd-hpa` 安装  
+`nano /etc/default/tftpd-hpa` 修改配置文件  
 ```
 配置文件示例
 TFTP_USERNAME="tftp"
@@ -98,7 +103,7 @@ TFTP_DIRECTORY="/home/nxx/tftpboot"
 TFTP_ADDRESS="0.0.0.0:69"
 TFTP_OPTIONS="-l -c -s"
 ```
-*注意修改文件夹权限*
+*注意修改文件夹权限*  
 *注意使用systemctl启动服务*
 
 ### HTTP服务配置
